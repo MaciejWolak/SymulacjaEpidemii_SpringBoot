@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-
+@CrossOrigin("http://localhost:4200")
 @RestController()
 @RequestMapping("/")
 public class ResultsController {
