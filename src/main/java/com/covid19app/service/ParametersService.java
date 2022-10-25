@@ -11,9 +11,9 @@ public interface ParametersService {
     Parameters createNewSimulation(Parameters parameters);
     void updateParameters(Parameters parameters);
     void deleteSimulation(long id);
-
     List<Results> getAllResults();
     void deleteResults(long id);
+    Results getOneResultById(long id);
 
 
 }

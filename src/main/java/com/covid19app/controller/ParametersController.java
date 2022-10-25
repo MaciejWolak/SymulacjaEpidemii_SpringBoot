@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-
+@CrossOrigin("http://localhost:4200")
 @RestController()
 @RequestMapping("/")
 public class ParametersController {
@@ -41,9 +41,9 @@ public ResponseEntity<Parameters> getSimulation(@PathVariable long id){
     return  new ResponseEntity<>(newParameters, HttpStatus.CREATED);
     }
 
-    @PutMapping("simulations/{id}")
-    public ResponseEntity<Parameters> updateSimulation(@PathVariable long id, @RequestBody Parameters simulationParameters){
-    Parameters newSimulationParameters = parametersService.getOneSimulationById(id);
+    @PutMapping("simulations")
+    public ResponseEntity<Parameters> updateSimulation(@RequestBody Parameters simulationParameters){
+    Parameters newSimulationParameters = parametersService.getOneSimulationById(simulationParameters.getId());
 
 
 

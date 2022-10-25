@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-
+@CrossOrigin("http://localhost:4200")
 @RestController()
 @RequestMapping("/")
 public class ResultsController {
@@ -25,6 +25,12 @@ public class ResultsController {
         if (CollectionUtils.isEmpty(results)) {
             throw new EntityNotFoundException();
         }
+        return new ResponseEntity<>(results, HttpStatus.OK);
+    }
+
+    @GetMapping("results/{id}")
+    public ResponseEntity<Results> getResult(@PathVariable long id){
+        Results results = parametersService.getOneResultById(id);
         return new ResponseEntity<>(results, HttpStatus.OK);
     }
 }
