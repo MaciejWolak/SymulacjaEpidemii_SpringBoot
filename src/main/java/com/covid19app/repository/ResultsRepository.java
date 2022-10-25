@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ResultsRepository extends JpaRepository<Results, Long> {
+    Results getResultsByParametersId(long id);
+    void deleteResultsByParametersId(long id);
 }

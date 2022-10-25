@@ -21,6 +21,6 @@ private int timeToRecovery;
 private int timeToDeath;
 private int timeOfSimulation;
 @JsonIgnore
-@OneToMany(mappedBy = "parameters", cascade = CascadeType.MERGE)
+@OneToMany(mappedBy = "parameters", cascade = CascadeType.ALL)
 private List<Results> resultList;
 }

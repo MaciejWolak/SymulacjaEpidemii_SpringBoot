@@ -44,13 +44,18 @@ public ResponseEntity<Parameters> getSimulation(@PathVariable long id){
     @PutMapping("simulations/{id}")
     public ResponseEntity<Parameters> updateSimulation(@PathVariable long id, @RequestBody Parameters simulationParameters){
     Parameters newSimulationParameters = parametersService.getOneSimulationById(id);
+
+
+
     newSimulationParameters.setSimulationName(simulationParameters.getSimulationName());
     newSimulationParameters.setPopulationSize(simulationParameters.getPopulationSize());
     newSimulationParameters.setInitialNumberOfInfectedPeople(simulationParameters.getInitialNumberOfInfectedPeople());
     newSimulationParameters.setDeathRate(simulationParameters.getDeathRate());
+    newSimulationParameters.setInfectionRate(simulationParameters.getInfectionRate());
     newSimulationParameters.setTimeToRecovery(simulationParameters.getTimeToRecovery());
     newSimulationParameters.setTimeToDeath(simulationParameters.getTimeToDeath());
     newSimulationParameters.setTimeOfSimulation(simulationParameters.getTimeOfSimulation());
+    parametersService.deleteResults(simulationParameters.getId());
     parametersService.updateParameters(newSimulationParameters);
     return new ResponseEntity<>(simulationParameters, HttpStatus.OK);
     }

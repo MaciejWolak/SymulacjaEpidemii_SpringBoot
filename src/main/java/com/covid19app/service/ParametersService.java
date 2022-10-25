@@ -13,6 +13,7 @@ public interface ParametersService {
     void deleteSimulation(long id);
 
     List<Results> getAllResults();
+    void deleteResults(long id);
 
 
 }
