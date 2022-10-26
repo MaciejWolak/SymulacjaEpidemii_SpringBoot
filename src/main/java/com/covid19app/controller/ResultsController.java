@@ -33,4 +33,10 @@ public class ResultsController {
         Results results = parametersService.getOneResultById(id);
         return new ResponseEntity<>(results, HttpStatus.OK);
     }
+
+    @GetMapping("results/list/{id}")
+    public ResponseEntity<List<Results>> getResultsByParameterId(@PathVariable long id){
+        List<Results> results = parametersService.getResultsByParameterId(id);
+        return new ResponseEntity<>(results, HttpStatus.OK);
+    }
 }

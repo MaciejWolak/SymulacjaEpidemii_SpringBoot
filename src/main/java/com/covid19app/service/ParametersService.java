@@ -14,6 +14,7 @@ public interface ParametersService {
     List<Results> getAllResults();
     void deleteResults(long id);
     Results getOneResultById(long id);
+    List<Results>getResultsByParameterId(long id);
 
 
 }

@@ -117,4 +117,9 @@ public class ParametersServiceImpl implements ParametersService{
         return resultRepository.findById(id).orElseThrow(()-> new NotFoundException("Result not found"));
     }
 
+    @Override
+    public List<Results> getResultsByParameterId(long id) {
+        return resultRepository.getResultsByParametersId(id);
+    }
+
 }
